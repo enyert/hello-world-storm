@@ -9,7 +9,7 @@ import backtype.storm.tuple.Tuple
 /**
   * Created by enyert on 8/9/16.
   */
-class WordCounterBolt extends IRichBolt{
+class WordCounterBolt extends IRichBolt {
 
   var id: Int = 0
 
@@ -26,7 +26,7 @@ class WordCounterBolt extends IRichBolt{
 
   override def cleanup(): Unit = {
     println("-- Word Counter [" + name + "-" + id + "] --")
-    println("Counters number: " + counters.size)
+    //println("Counters number: " + counters.size)
     for(entry <- counters) {
       println(entry._1 + ": " + entry._2)
     }
@@ -40,7 +40,7 @@ class WordCounterBolt extends IRichBolt{
       //counters = counters - "abc"
       counters = counters ++ Map(str -> 1)
     } else {
-      println("Value is: " + str)
+      //println("Value is: " + str)
       val c = counters(str) + 1
       counters = counters ++ Map(str -> c)
     }
